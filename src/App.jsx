@@ -38,7 +38,7 @@ const App = () => {
       ?
       <Login />
       :
-      <BrowserRouter>
+      <BrowserRouter basename='/dashboard'>
         <ApiUrlProvider>
           <SideBarProvider>
             <Dashboard />      
