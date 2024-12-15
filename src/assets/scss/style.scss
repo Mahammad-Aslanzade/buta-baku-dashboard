@@ -1,0 +1,45 @@
+// Components
+@import 'dashboard';
+@import 'login';
+@import 'swal';
+@import 'sidebar';
+@import 'manageDashbard';
+@import 'instruction';
+@import 'table';
+@import 'buttons';
+@import 'pages';
+@import 'loading';
+@import 'addPage';
+@import url('./inputs/_inputField.scss');
+@import url('./inputs/_imageInfo.scss');
+@import url('./inputs/_textArea.scss');
+@import url('./inputs/_selection.scss');
+@import url('./inputs/_listfield.scss');
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root{
+    --sidebar-bg-color : #07090a ;
+    --content-bg-color : #101316 ;
+    --sidebar-head-text-color: #d4b3ff;
+    --sidebar-page-icons-color : #d4b3ff;
+    --sidebar-page-title-color : #fff;
+    --indicator-icon-color: #721686;
+    --indicator-icon-active-color: #fff;
+}
+
+body{
+    background-color: var(--content-bg-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+// input[type=number] {
+//   -moz-appearance: textfield;
+// }

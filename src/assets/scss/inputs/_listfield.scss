@@ -1,0 +1,28 @@
+.list-box-container{
+    width: 100%;
+    margin-top: 3vh;
+    padding: 2vh 1vh;
+    background-color: #030303;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    .list-item{
+        background-color: #d4b3ff;
+        color: #030303;
+        padding: 3px;
+        border-radius: 10px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+}
+.delete-info-text{
+    width: 100%;
+    color: rgba($color: #d4b3ff, $alpha: .5);
+}
+.list-field-input{
+    hr{
+        width: 100%;
+        color: #d4b3ff;
+    }
+}

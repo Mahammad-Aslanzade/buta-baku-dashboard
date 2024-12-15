@@ -1,0 +1,66 @@
+.dashboard-main-container {
+    width: 100%;
+    position: relative;
+    .sidebar-container {
+        position: absolute;
+        position:fixed;
+        width: 20%;
+        height: 100vh;
+        left: -100%;
+        transition: 3s;
+        z-index: 100;
+        background-color: var(--sidebar-bg-color);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        @media (max-width: 1200px) {
+            // Sum of witdhs of sidebar and content layer must be equal 100
+            // Here witdh 30% and 70%
+            width: 30%;
+        }
+        @media (max-width: 912px) {
+            width: 40%;
+        }
+        @media (max-width: 750px) {
+            width: 50%;
+        }
+        @media (max-width: 550px) {
+            width: 60%;
+        }
+        @media (max-width: 450px) {
+            width: 70%;
+        }
+    }
+
+    .sidebar-shown {
+        left: 0;
+    }
+
+    
+    .content-back-layer {
+        transition: 2s;
+        position: absolute;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        top: 0;
+        background-color: var(--content-bg-color);
+        height: 100vh;
+        .content-container{
+            width: 100%;
+        }
+
+        @media (max-width: 1200px) {
+            width: 70%;
+        }
+
+        @media (max-width: 912px) {
+            // if with below than 912px , content layer will hold whole screen
+            // And sidebar will be on top of content layer
+            width: 100%;
+        }
+    }
+
+    .content-back-wider{
+        width: 100%;
+    }
+  }

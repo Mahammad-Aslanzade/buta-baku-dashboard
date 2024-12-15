@@ -1,0 +1,128 @@
+.sidebar-content-container {
+  width: 100%;
+  height: 100vh;
+  
+  .sidebar-head {  
+    height: 15vh;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3{
+      color: var(--sidebar-head-text-color) !important;
+      padding: 2vh 0;
+    }
+    .btn-close {
+      background: none;
+      font-size: 30px;
+      color: #f2f2f2 ;
+      opacity: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;  
+      &:focus{
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .pages-container{
+    padding: 2vh 0;
+    height: 80vh;
+    overflow-y: hidden;
+    &:hover{
+      overflow-y: auto;
+      &::-webkit-scrollbar-track
+      {
+        background-color: #211236;
+        border-radius: 20px;
+        width: 7px;
+      }
+      
+      &::-webkit-scrollbar
+      {
+        width: 10px;
+        background-color: #fff;
+        border-radius: 20px;
+        width: 7px;
+      }
+      
+      &::-webkit-scrollbar-thumb
+      {
+        background-color: #d4b3ff;
+        border-radius: 20px;
+        width: 7px;
+      }
+
+    }
+
+    .page-indicator{
+      width: 80%;
+      margin: 1vh 0;
+      height: max-content;
+      background-color: var(--supporting-color-one);
+      border-radius: 10px;
+      text-align: start;    
+      display: flex;  
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+      .page-switcher{
+        display: flex;
+        align-items:last baseline;
+        i{
+          font-size: 18px;
+          margin-right: 5px;
+          display: flex;
+          align-items: center;
+          color: var(--sidebar-page-icons-color);
+        }
+        .title{
+          padding: 0;
+          margin: 0;
+          font-size: 20px;
+          color: var(--sidebar-page-title-color);
+          display: flex;
+          align-items: center;
+        }
+      }
+      .indicator-frame{
+        width: 25px;
+        height: 25px;
+        overflow: hidden;
+        position: relative;
+        i{
+          transition: 0.5s;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(100% , -50%);
+          font-size: 20px;
+          color: var(--indicator-icon-color);
+        }
+      }
+      &:hover{
+        .indicator-frame{
+          i{
+            transform: translate(-50%, -50%) !important;
+          }  
+        }
+      }
+    }
+    .active-page{
+      background-color: rgba(#721686 , 0.5);
+      .page-switcher{
+        i{
+          color: #fff;
+        }
+      }
+      .indicator-frame{
+        i{
+          color: var(--indicator-icon-active-color);
+          transform: translate(-50%, -50%) !important;
+        }
+      }
+    }
+    
+  }
+}

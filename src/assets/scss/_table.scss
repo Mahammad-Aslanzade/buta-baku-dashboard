@@ -1,0 +1,151 @@
+.table-container{
+    width: 100%;
+    .table-content-container{
+        width: 100%;
+        overflow-x: auto;
+        .content-table{
+            width: 100%;
+            margin: 0;
+            font-size: 16px;
+            font-family: "Inter" sans-serif;
+            thead{
+                font-size: 20px;
+                th{
+                    color: #fff;
+                    background-color: #721686;
+                }
+            }
+            tbody{
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                font-size: 18px;
+                th{
+                    border: 1px solid #721686;
+                    color: #fff;
+                }
+                td{
+                    background-color: rgba(#d4b3ff , 0.5);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .table-control-panel-container{
+        width: 100%;
+        padding: 1.5vh 0.5vh;
+        background-color: #721686;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 490px) {
+            flex-direction: column;
+            *{
+                margin: 0.5vh 0;
+            }
+        }
+
+        .element-per-page{
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            p{
+                margin: 0;
+                margin-right: 1vh;
+            }
+            select{
+                background: none;
+                border: none;
+                color: #fff;
+                option{
+                    background-color: #721686;
+                    color: #fff;
+                }
+                &:focus-visible{
+                    outline: none;
+                }
+            }
+        }
+
+        .page-switcher {
+            width: 50%;
+            // max-width: 100%;
+            display: flex;
+            justify-content: flex-start; 
+            overflow-x: auto; 
+            overflow-y: hidden; 
+        
+            button {
+                margin: 0;
+                flex-shrink: 0;
+            }
+        
+            .page-indicator {
+                background: none;
+                border: none;
+                color: #fff;
+                transition: 0.3s;
+                margin: 0.5vh 0.5vw;
+            }
+        
+            .indicator-active {
+                background-color: #400c4c;
+                border-radius: 10px;
+            }
+        
+            /* Custom Scrollbar Styling */
+            &::-webkit-scrollbar-track {
+                background-color: #211236;
+                border-radius: 20px;
+            }
+        
+            &::-webkit-scrollbar {
+                background-color: #fff;
+                border-radius: 20px;
+                width: 3px;
+                height: 5px;
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: #d4b3ff;
+                border-radius: 20px;
+                width: 3px;
+            }
+        }
+
+        .page-number{
+            display: flex;
+            align-items: center;
+            height: max-content;
+            padding: 0.5vh;
+            border-radius: 10px;
+            transition: 1s;
+            cursor: pointer;
+            button{
+                width: max-content;
+                border: none;
+                color: #fff;
+                background: none;
+                background-color: rgba($color: #d4b3ff, $alpha: .5);
+                border-radius: 10px;
+                margin-right: 3px;
+            }
+            input{
+                width: 40px;
+                height: 100%;
+                background: none;
+                border: none;
+                color: #d4b3ff;
+                font-weight: bolder;
+                border-bottom: 1px solid #d4b3ff;
+                &:focus-visible{
+                    outline: none;
+                }
+            }
+            &:hover{
+                background-color: #400c4c;
+            }
+        }
+    }
+}

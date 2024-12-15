@@ -1,0 +1,38 @@
+.btn-edit{
+    background-color: #721686;
+    color: #fff;
+    border-radius: 10px;
+    &:hover{
+        background-color: #d4b3ff;
+        color: #721686;
+    }
+}
+
+.btn-delete{
+    background-color: #d33545;
+    color: #f8d7da;
+    &:hover{
+        background-color: #f8d7da;
+        color: #d33545;
+    }
+}
+
+.btn-add{
+    background-color: #721686;
+    color: #fff;
+    border-radius: 10px;
+    &:hover{
+        background-color: #721686;
+        color: #fff;
+    }
+}
+
+.btn-save{
+    font-weight: bolder;
+    background-color: #721686;
+    color: #fff;
+    &:hover{
+        background-color: #d4b3ff;
+        color: #721686;
+    }
+}

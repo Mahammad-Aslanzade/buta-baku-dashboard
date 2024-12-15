@@ -1,0 +1,40 @@
+.page-container{
+
+    .page-head{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .page-title{
+            color: #fff;
+            margin: 5vh 0;
+        }
+    }
+
+    .search-box-container {
+        width: 100%;
+        margin-bottom: 2vh;
+        input{
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid #721686;
+            color: #721686;
+            font-size: 20px;
+            &:focus-visible{
+                outline: none;
+                color: #fff;
+            }
+            &::placeholder{
+                color: #721686;
+            }
+        }
+    }
+}
+
+.api-information-text{
+    padding: 5vh 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+}

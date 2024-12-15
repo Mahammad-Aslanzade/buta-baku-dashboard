@@ -1,0 +1,19 @@
+select{
+    width: 100%;
+    background: none;
+    padding: 1vh;
+    border: 1px solid #d4b3ff;
+    border-radius: 10px;
+    background: none;
+    color: #d4b3ff;
+    &:focus-visible{
+        outline: none;
+        color: #fff;
+        border-color: #fff;
+    }
+    option{
+        background: none !important;
+        background-color: #030303 !important;
+        color: #d4b3ff;
+    }
+}

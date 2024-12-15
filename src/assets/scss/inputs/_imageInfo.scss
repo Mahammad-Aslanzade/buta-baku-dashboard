@@ -1,0 +1,59 @@
+.input-file-box{
+    width: 100%;
+    border-radius: 10px;
+    border: 2px dashed #d4b3ff ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        color: #d4b3ff;
+        margin: 0;
+        padding: 0;
+    }
+    .text-box{
+        padding: 0.5vh 0;
+        p{
+            padding: 0.5vh 0;
+            font-size: 15px;
+        }
+        .click-here{
+            width: 100%;
+            text-align: center;
+            span{
+                font-size: 12px;
+                cursor: pointer;
+                color: #721686;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+.image-input{
+    width: 100%;
+    padding: 2vh;
+    border: 2px dashed #d4b3ff;
+    border-radius: 10px;
+    .picture-frame{
+        padding: 2vh 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        img{
+            width: 200px;
+            object-fit: contain;
+            image-rendering: optimizeQuality;
+        }
+    }
+    .input-box-container{
+        //Image input info borders
+        label{
+            width: 100%;
+        }
+    }
+}

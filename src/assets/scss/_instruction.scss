@@ -1,0 +1,25 @@
+.instruction-container {
+    width: 100%;
+    .head-text {
+        padding: 2vh 0;
+        color: #fff;
+        text-align: center;
+    }
+    .rules-list {
+        margin-top: 5vh;
+      .rule-item {
+        margin: 1v 0;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        i{
+            margin-right: 10px;
+            color: #721686;
+        }
+        .rule-text{
+            margin: 0;
+            color: #fff;
+        }
+      }
+    }
+  }

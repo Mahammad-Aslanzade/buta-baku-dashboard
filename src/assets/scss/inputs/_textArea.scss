@@ -1,0 +1,16 @@
+.input-item{
+    .input-box-container{
+        textarea{
+            width: 100%;
+            background: none;
+            border: 1px solid #d4b3ff;            
+            color: #d4b3ff;
+            padding: 1vh;
+            &:focus-visible{
+                outline: none;
+                color: #fff;
+                border-color: #fff;
+            }
+        }
+    }
+}
