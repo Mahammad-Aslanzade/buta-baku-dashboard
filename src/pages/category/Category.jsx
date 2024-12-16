@@ -111,6 +111,8 @@ const Category = () => {
         btnPath={`${pagePath}/add`}
       />
 
+      <h5 className="text-white">Ümumi : {allData ? allData.length : ""}</h5>
+
       <SearchInput
         onChangeFunc={(e)=> filterFunction(e.target.value , "titleAZ" , allData ,  setFilteredData) }
       />
@@ -126,8 +128,8 @@ const Category = () => {
         
         <Table 
           allData={filteredData}
-          defaultElementPerPage={3}
-          optionsPerPage={[3, 5, 10]}
+          defaultElementPerPage={5}
+          optionsPerPage={[5, 10, 20]}
           tableColumns={tableColumns}
           navigateDetailFunc={editFunc}
           deleteFunc={delteFunc}

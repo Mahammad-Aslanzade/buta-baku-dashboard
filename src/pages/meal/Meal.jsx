@@ -107,6 +107,8 @@ const Meal = () => {
         btnPath={`${pagePath}/add`}
       />
 
+      <h5 className="text-white">Ümumi : {allData ? allData.length : ""}</h5>
+
       <SearchInput
         onChangeFunc={(e)=> filterFunction(e.target.value , "titleAZ" , allData ,  setFilteredData) }
       />
@@ -122,8 +124,8 @@ const Meal = () => {
         
         <Table 
           allData={filteredData}
-          defaultElementPerPage={5}
-          optionsPerPage={[5, 10, 20]}
+          defaultElementPerPage={10}
+          optionsPerPage={[10, 50, 100]}
           tableColumns={tableColumns}
           navigateDetailFunc={editFunc}
           deleteFunc={delteFunc}

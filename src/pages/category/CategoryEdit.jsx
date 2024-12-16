@@ -106,7 +106,7 @@ const CategoryEdit = () => {
 
               </form>
 
-              <div className="subcategories-content my-3">
+              <div className="subcategories-content my-5 pb-4">
                 <h2 className='add-page-label mt-5'>Daxilindəki alt kateqoriyalar</h2>
                 <p className='text-white  mb-5'>Üzərinə klik edərək ətraflı məlumat ala bilərsiniz:</p>
 

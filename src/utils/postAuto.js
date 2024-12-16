@@ -6,22 +6,24 @@ const baseUrl = "http://164.92.190.92/api";
 }
 
 const data =   [
-    { subCategoryId: 30 ,titleAZ: "Künəfə", titleEN: "Künəfə", gram: "", price: 8.00 },
-    { subCategoryId: 30 ,titleAZ: "Sütlü Nuriye", titleEN: "Sütlü Nuriye", gram: "", price: 9.00 },
-    { subCategoryId: 30 ,titleAZ: "San Sebastian Cheesecake", titleEN: "San Sebastian Cheesecake", gram: "", price: 9.00 },
-    { subCategoryId: 30 ,titleAZ: "Tiramisu", titleEN: "Tiramisu", gram: "", price: 8.00 },
-    { subCategoryId: 30 ,titleAZ: "Ballı Tort", titleEN: "Ballı Tort", gram: "", price: 8.00 },
-    { subCategoryId: 30 ,titleAZ: "Bakı Paxlavası", titleEN: "Bakı Paxlavası", gram: "(3ədəd)", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Şəkərbura", titleEN: "Şəkərbura", gram: "(3ədəd)", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Dondurma", titleEN: "Dondurma", gram: "(3top seçməli)", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Meyvə Assorti", titleEN: "Meyvə Assorti", gram: "", price: 18.00 },
-    { subCategoryId: 30 ,titleAZ: "Çay-Çaynik", titleEN: "Çay-Çaynik", gram: "", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Çay Samovar", titleEN: "Çay Samovar", gram: "", price: 20.00 },
-    { subCategoryId: 30 ,titleAZ: "Mürəbbələr", titleEN: "Mürəbbələr", gram: "", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Çərəzlər", titleEN: "Çərəzlər", gram: "", price: 15.00 },
-    { subCategoryId: 30 ,titleAZ: "Zoğal", titleEN: "Zoğal", gram: "", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Vişnə", titleEN: "Vişnə", gram: "", price: 5.00 },
-    { subCategoryId: 30 ,titleAZ: "Üzüm", titleEN: "Üzüm", gram: "", price: 5.00 }
+  { subCategoryId: 37, titleAZ: "Quzu Gərdan", titleEN: "Lamb Gardan", gram: "(250 qr.)", price: "15.00" },
+  { subCategoryId: 37, titleAZ: "Çoban Qovurma", titleEN: "Choban govurma", gram: "(250 qr.)", price: "12.00" },
+  { subCategoryId: 37, titleAZ: "Şəki Pitisi", titleEN: "Sheki piti", gram: "", price: "10.00" },
+  { subCategoryId: 37, titleAZ: "Yarpaq Dolması", titleEN: "Grape leaves dolma", gram: "(200 qr.)", price: "9.00" },
+  { subCategoryId: 37, titleAZ: "Pip Dolması", titleEN: "Pip dolma", gram: "(250 qr.)", price: "10.00" },
+  { subCategoryId: 37, titleAZ: "Quzu Buğlama", titleEN: "Lamb bughlama", gram: "(250 qr.)", price: "10.00" },
+  { subCategoryId: 37, titleAZ: "Dana Buğlama", titleEN: "Beef bughlama", gram: "", price: "10.00" },
+  { subCategoryId: 37, titleAZ: "Nar Qovurma (Quzu Əti)", titleEN: "Lamb with roast pomegranate", gram: "(250 qr.)", price: "15.00" },
+  { subCategoryId: 37, titleAZ: "Nar Qovurma (Can Əti)", titleEN: "Tenderloin with roast pomegranate", gram: "(250 qr.)", price: "18.00" },
+  { subCategoryId: 37, titleAZ: "Cız-Bız", titleEN: "Jiz-biz lamb giblets", gram: "(250 qr.)", price: "10.00" },
+  { subCategoryId: 37, titleAZ: "Can Əti (turşulu\\şabaladlı)", titleEN: "Tenderloin with plums and chestnuts", gram: "(250 qr.)", price: "15.00" },
+  { subCategoryId: 37, titleAZ: "Şabaladlı Maça Qovurma", titleEN: "Lamb shank with chestnuts", gram: "(300 qr.)", price: "12.00" },
+  { subCategoryId: 37, titleAZ: "Şirəli Dana", titleEN: "Juicy beef", gram: "(250 qr.)", price: "12.00" },
+  { subCategoryId: 37, titleAZ: "Can Əti Qaymaqlı", titleEN: "Tenderloin in a creamy sauce", gram: "", price: "14.00" },
+  { subCategoryId: 37, titleAZ: "Şirəli Xoruz", titleEN: "Juicy chicken", gram: "", price: "25.00" },
+  { subCategoryId: 37, titleAZ: "Qaymaqlı Çolpa", titleEN: "Chicken in a creamy sauce", gram: "", price: "20.00" },
+  { subCategoryId: 37, titleAZ: "Maça Peraşki", titleEN: "Lamb shank perashki", gram: "", price: "9.00" }
+
   ]
   
   
