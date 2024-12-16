@@ -110,7 +110,7 @@ const CategoryEdit = () => {
                 {
                   subCategories.map((item)=>{                    
                     return(
-                      <p className='btn btn-secondary d-block text-start' onClick={()=> window.location.href(`/subCategory/${item.id}`)}>{item.titleAZ}</p>
+                      <p className='btn btn-secondary d-block text-start' onClick={()=> navigate(`/subCategory/${item.id}`)}>{item.titleAZ}</p>
                     )
                   })
                 }

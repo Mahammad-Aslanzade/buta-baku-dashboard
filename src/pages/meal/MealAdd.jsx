@@ -35,9 +35,6 @@ const MealAdd = () => {
   const [subCategoryId , setSubCategoryId] = useState();
   const [gram , setGram] = useState();
   const [price , setPrice] = useState();
-  const [ingridientsAZ , setIngridientsAZ] = useState();
-  const [ingridientsEN , setIngridientsEN] = useState();
-  const [isCombo , setIsCombo] = useState(false);
   const [descEN , setDescEN] = useState();  
   const [descAZ , setDescAZ] = useState();  
 
@@ -70,26 +67,15 @@ const MealAdd = () => {
     formData.append('titleAZ' , titleAZ);
     formData.append('gram' , gram);
     formData.append('price' , price);
-    // formData.append('ingridientsAZ' , ingridientsAZ);
-    // formData.append('ingridientsEN' , ingridientsEN);
-    formData.append('isCombo' , isCombo);
     formData.append('descEN' , descEN);
     formData.append('descAZ' , descAZ);    
 
     const requestBody = new FormData();
 
     for(let  [key , value] of formData.entries()){      
-      if(!(value == null || value == "undefined")){
+      if(!(value== "undefined" || !value) ){
         requestBody.append(key , value);
       }
-    }
-
-    if(ingridientsAZ){
-      ingridientsAZ.map((i)=> formData.append('ingridientsAZ' , i))
-    }
-
-    if(ingridientsEN){
-      ingridientsEN.map((i)=> formData.append('ingridientsEN' , i))
     }
 
     
@@ -106,9 +92,6 @@ const MealAdd = () => {
     })
   }
 
-  const comboText=()=>{
-    return isCombo ? "SET" : "SADƏ"
-  }
 
   return (
     <div className='add-page-container container'>
@@ -146,7 +129,6 @@ const MealAdd = () => {
                     />
 
                     <ImageInput
-                        label="Image"
                         image={image}
                         setImage={setImage}
                         required={true}
@@ -175,25 +157,12 @@ const MealAdd = () => {
                     <hr />
 
 
-                    <div className="dropdown text-center my-2">
-                      <button className="btn btn-warning text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {comboText()}
-                      </button>
-                      <ul className="dropdown-menu bg-dark">
-                        <li><a className={`dropdown-item text-white ${!isCombo ? "bg-warning" : "bg-dark"}`} onClick={()=>setIsCombo(false)}>SADƏ</a></li>
-                        <li><a className={`dropdown-item text-white ${isCombo ? "bg-warning" : "bg-dark"}`} onClick={()=>setIsCombo(true)}>SET</a></li>
-                      </ul>
-                    </div>
-
-
-                    {
-                      !isCombo ?
-                      <div className='my-5'>
-                       <h2 className='add-page-label'>Yemək detalları</h2>
-                          <TextAreaField 
-                          label="Təsvir (AZ)"
-                          setState={setDescAZ}
-                          />
+                  <div className='my-5'>
+                     <p className='add-page-label fs-5'>Yemək detalları</p>
+                        <TextAreaField 
+                        label="Təsvir (AZ)"
+                        setState={setDescAZ}
+                        />
 
                         <TextAreaField 
                           label="Təsvir (EN)"
@@ -204,28 +173,7 @@ const MealAdd = () => {
                           label="Ölçü"
                           setState={setGram}
                         />
-                      </div>
-                      
-                      :
-
-                      <div className='my-5'>
-                        <h2 className='add-page-label'>Set detalları</h2>
-
-                        <ListField 
-                          label="Tərkibi (AZ)"
-                          list={ingridientsAZ}
-                          setList={setIngridientsAZ}
-                          placeholder="Yazdıqdan sonra entərə klikləyin"
-                        />
-
-                        <ListField 
-                          label="Tərkibi (EN)"
-                          list={ingridientsEN}
-                          setList={setIngridientsEN}
-                          placeholder="Yazdıqdan sonra entərə klikləyin"
-                        />
-                      </div>
-                    }
+                    </div>
                     
 
 
