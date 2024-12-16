@@ -33,8 +33,8 @@ const App = () => {
   return (
     <>
     {
-      (!login || (date.getTime() - lastEnter) > day)
-      // false
+      // (!login || (date.getTime() - lastEnter) > day)
+      false
       ?
       <Login />
       :
