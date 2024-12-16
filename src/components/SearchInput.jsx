@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SearchInput = ({onChangeFunc , defaultValue , placeholder = "Search from table ..."}) => {
+const SearchInput = ({onChangeFunc , defaultValue , placeholder = "Cədvəldən ada görə axtarın..."}) => {
 
   
   return (

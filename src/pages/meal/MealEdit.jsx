@@ -113,7 +113,6 @@ const MealEdit = () => {
     axios
       .put(`${baseUrl}/${apiEndPoint}/${id}`, requestBody, { headers })
       .then((res) => {
-        console.log("RESPONSE : ", res);
         navigate(pagePath);
       })
       .catch((err) => {
@@ -140,7 +139,6 @@ const MealEdit = () => {
             <InputField
               label="Qiymət (AZN)"
               defaultValue={price}
-              inputType="number"
               setState={setPrice}
               required={true}
             />

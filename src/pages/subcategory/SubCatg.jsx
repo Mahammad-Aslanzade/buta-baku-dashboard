@@ -8,6 +8,8 @@ import LoadingFail from "../../components/loader-warnings/LoadingFail";
 import areYouSureToDelete from "../../components/alert/AreYouSureToDelete";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { filterFunction } from "../../utils/filterData";
+import SearchInput from "../../components/SearchInput";
 
 
 const SubCatg = () => {
@@ -35,20 +37,47 @@ const SubCatg = () => {
   ]
 
 
+  const callDeleteApi=(id)=>{
+    const link= `${baseUrl}/${apiEndPoint}/${id}`;
+    
+    axios.delete(link , {headers})
+    .then((res)=>{        
+      // console.log(res);
+      window.location.reload();     
+     })
+    .catch((err)=>{
+      const response = err.response.data;
+      Swal.fire(JSON.stringify(response));
+    })
+  }
+
   const delteFunc =(id)=>{
   
+    
     const deleteReq=()=>{
-      const link= `${baseUrl}/${apiEndPoint}/${id}`;
-      axios.delete(link , {headers})
+      const existProducts = allData.find((i)=> i.id == id).products;
+      const titles =existProducts.map((item,c) => `<h5 className="fs-5">${c+1}. ${item.titleAZ}</h5>`).join('<br>');
+
+      Swal.fire({
+        icon: "warning",
+        title: "Daxilinde olan məhsulları silməkdə əminsiniz !",
+        showCancelButton: true,
+        html: titles,
+        footer: "<h5 class='text-warning'>Siyahıdakı məhsullarda silinəcəkdir</h5>"
+      })
       .then((res)=>{
-        if(res.status == 204){
-          window.location.reload();
+        if(res.isConfirmed){
+          callDeleteApi(id);
         }
       })
-      .catch((err)=>{
-        const response = err.response.data;
-        Swal.fire(JSON.stringify(response));
+      .catch(()=>{
+        console.log("ERRR");
+        
       })
+
+      
+      
+
     }
 
     areYouSureToDelete(deleteReq);
@@ -83,9 +112,9 @@ const SubCatg = () => {
         btnPath={`${pagePath}/add`}
       />
 
-      {/* <SearchInput
-        onChangeFunc={(e)=> filterFunction(e.target.value , "title" , allData ,  setFilteredData) }
-      /> */}
+      <SearchInput
+        onChangeFunc={(e)=> filterFunction(e.target.value , "titleAZ" , allData ,  setFilteredData) }
+      />
 
       {
         loading ? 

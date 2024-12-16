@@ -3,7 +3,8 @@ import Swal from 'sweetalert2';
 const areYouSureToDelete = (confirmedFunc=()=>{}) => {
   
     Swal.fire({
-      title: "Are you sure ?",
+      icon: "question",
+      title: "Silməkdə əminsiniz ?",
       showCancelButton: true,
     }).then((result) => {
       

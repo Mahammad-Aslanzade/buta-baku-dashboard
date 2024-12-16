@@ -7,11 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import TextAreaField from '../../components/inputs/TextAreaField';
 import SelectionField from '../../components/inputs/SelectionField';
-import Swal from 'sweetalert2';
 import Loading from '../../components/loader-warnings/Loading';
 import LoadingFail from '../../components/loader-warnings/LoadingFail';
-import ListField from '../../components/inputs/ListField';
-import axiosInstance from '../configuration/axiosConfig';
+import axiosInstance from '../../configuration/axiosConfig';
 
 const MealAdd = () => {
   
@@ -83,12 +81,10 @@ const MealAdd = () => {
     
     axiosInstance.post(`${baseUrl}/${apiEndPoint}`, requestBody, {headers})
     .then((res)=>{
-      console.log("RESPONSE : " , res);
       navigate(pagePath)
     })
     .catch((err)=>{
-        const data = err.response;
-        // Swal.fire(JSON.stringify(data));
+      console.log(err);
     })
   }
 
@@ -123,7 +119,6 @@ const MealAdd = () => {
 
                     <InputField
                         label="Qiymət (AZN)"
-                        inputType='number'
                         setState={setPrice}
                         required={true}
                     />

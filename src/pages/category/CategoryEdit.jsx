@@ -42,8 +42,11 @@ const CategoryEdit = () => {
     
     axios.put(`${baseUrl}/${apiEndPoint}/${id}`, formData , {headers})
     .then((res)=>{
-      console.log("RESPONSE : " , res);
       navigate(pagePath)
+    })
+    .catch((err)=>{
+      console.log(err);
+      
     })
   }
 

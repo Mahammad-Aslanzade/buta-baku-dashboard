@@ -4,8 +4,7 @@ import ImageInput from '../../components/inputs/ImageInput';
 import SaveBtn from '../../components/buttons/SaveBtn';
 import { ApiUrlContext } from '../../context/ApiUrlContext';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import axiosInstance from '../configuration/axiosConfig';
+import axiosInstance from '../../configuration/axiosConfig';
 
 const CategoryAdd = () => {
   
@@ -32,9 +31,12 @@ const CategoryAdd = () => {
     
     axiosInstance.post(`${baseUrl}/${apiEndPoint}`, formData , {headers})
     .then((res)=>{
-      console.log("RESPONSE : " , res);
       navigate(pagePath)
     })
+    .catch((err)=>{
+      console.log(err);
+    })
+
   }
 
   return (

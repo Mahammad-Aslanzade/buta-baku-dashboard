@@ -11,9 +11,9 @@ const Instruction = () => {
         <div className="rules-list">
 
             {
-                rules.rules.map((rule)=>{
+                rules.rules.map((rule,c)=>{
                     return(
-                        <div className="rule-item">
+                        <div className="rule-item" key={c}>
                             <i className="fa-solid fa-check"></i>
                             <p className='rule-text'>{rule}</p>
                         </div>

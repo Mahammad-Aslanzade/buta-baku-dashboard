@@ -8,6 +8,8 @@ import LoadingFail from "../../components/loader-warnings/LoadingFail";
 import areYouSureToDelete from "../../components/alert/AreYouSureToDelete";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SearchInput from "../../components/SearchInput";
+import { filterFunction } from "../../utils/filterData";
 
 
 const Category = () => {
@@ -41,20 +43,39 @@ const Category = () => {
     }
   ]
 
+  const callDeleteApi=(id)=>{
+    const link= `${baseUrl}/${apiEndPoint}/${id}`;
+    
+    axios.delete(link , {headers})
+    .then((res)=>{        
+      window.location.reload();     
+     })
+    .catch((err)=>{
+      const response = err.response.data;
+      Swal.fire(JSON.stringify(response));
+    })
+  }
 
   const delteFunc =(id)=>{
   
     const deleteReq=()=>{
-      const link= `${baseUrl}/${apiEndPoint}/${id}`;
-      axios.delete(link , {headers})
+      const existSubCategories = allData.find((i)=> i.id == id).subCategories;
+      const titles =existSubCategories.map((item,c) => `<h5 className="fs-5">${c+1}. ${item.titleAZ}</h5>`).join('<br>');      
+      
+      Swal.fire({
+        icon: "warning",
+        title: "Daxilinde olan məhsulları silməkdə əminsiniz !",
+        showCancelButton: true,
+        html: titles,
+        footer: "<h5 class='text-warning'>Siyahıdakı alt kateqoriyalar və daxilindəki məhsullarda silinəcəkdir</h5>"
+      })
       .then((res)=>{
-        if(res.status == 204){
-          window.location.reload();
+        if(res.isConfirmed){
+          callDeleteApi(id);
         }
       })
       .catch((err)=>{
-        const response = err.response.data;
-        Swal.fire(JSON.stringify(response));
+        console.log(err);
       })
     }
 
@@ -90,9 +111,9 @@ const Category = () => {
         btnPath={`${pagePath}/add`}
       />
 
-      {/* <SearchInput
-        onChangeFunc={(e)=> filterFunction(e.target.value , "title" , allData ,  setFilteredData) }
-      /> */}
+      <SearchInput
+        onChangeFunc={(e)=> filterFunction(e.target.value , "titleAZ" , allData ,  setFilteredData) }
+      />
 
       {
         loading ? 

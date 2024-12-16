@@ -107,9 +107,9 @@ const Meal = () => {
         btnPath={`${pagePath}/add`}
       />
 
-      {/* <SearchInput
+      <SearchInput
         onChangeFunc={(e)=> filterFunction(e.target.value , "titleAZ" , allData ,  setFilteredData) }
-      /> */}
+      />
 
       {
         loading ? 

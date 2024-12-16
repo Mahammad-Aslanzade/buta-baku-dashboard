@@ -5,7 +5,7 @@ import { ApiUrlContext } from '../../context/ApiUrlContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SelectionField from '../../components/inputs/SelectionField';
-import axiosInstance from '../configuration/axiosConfig';
+import axiosInstance from '../../configuration/axiosConfig';
 
 const SubCatgAdd = () => {
   
