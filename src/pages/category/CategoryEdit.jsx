@@ -7,6 +7,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../components/loader-warnings/Loading';
 import LoadingFail from '../../components/loader-warnings/LoadingFail';
+import Table from '../../components/Table';
+import { mealTableColumns } from '../../data/JsonStructures';
+import areYouSureToDelete from '../../components/alert/AreYouSureToDelete';
 
 const CategoryEdit = () => {
   
@@ -16,6 +19,11 @@ const CategoryEdit = () => {
 
   const [loading , setLoading] = useState(true);
   const [error , setError] = useState(null);
+
+  // For Products
+  const [allProducts , setAllProducts] = useState();
+  const [productLoading , setProductLoading] = useState(true);
+  const [showMeals , setShowMeals] = useState(true);
 
   //Settings
   const apiEndPoint = "v1/category";
@@ -52,7 +60,7 @@ const CategoryEdit = () => {
 
   useEffect(()=>{
     axios.get(`${baseUrl}/${apiEndPoint}/${id}`, {headers})
-    .then((res)=>{
+    .then((res)=>{      
       const data = res.data;
       setTitleAZ(data.titleAZ);
       setTitleEN(data.titleEN);
@@ -64,7 +72,43 @@ const CategoryEdit = () => {
       setLoading(false);
       setError(true);
     })
+
+    axios.get(`${baseUrl}/v1/product` , {headers})
+    .then((res)=>{
+      const data = res.data;
+      setAllProducts(data);
+      setProductLoading(false);
+    })
+    .catch((res)=>{
+      setAllProducts([]);
+      setProductLoading(false);
+    })
+
   },[])
+
+  const delteFunc =(id)=>{
+  
+    const deleteReq=()=>{
+      const link= `${baseUrl}/v1/product/${id}`;
+      axios.delete(link , {headers})
+      .then((res)=>{
+        if(res.status == 204){
+          window.location.reload();
+        }
+      })
+      .catch((err)=>{
+        console.log(err);
+        Swal.fire("Something went wrong");
+      })
+    }
+
+    areYouSureToDelete(deleteReq);
+    
+  }
+
+  const editFunc =(id)=>{
+    navigate(`/product/${id}`)
+  }
 
   return (
     <div className='add-page-container container'>
@@ -106,18 +150,66 @@ const CategoryEdit = () => {
 
               </form>
 
-              <div className="subcategories-content my-5 pb-4">
-                <h2 className='add-page-label mt-5'>Daxilindəki alt kateqoriyalar</h2>
-                <p className='text-white  mb-5'>Üzərinə klik edərək ətraflı məlumat ala bilərsiniz:</p>
 
-                {
-                  subCategories.map((item)=>{                    
-                    return(
-                      <p className='btn btn-secondary d-block text-start' onClick={()=> navigate(`/subCategory/${item.id}`)}>{item.titleAZ}</p>
-                    )
-                  })
-                }
+              <div className="dropdown my-5">
+                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kontenti Seç
+                </button>
+                <ul className="dropdown-menu bg-dark">
+
+                  <li onClick={()=> setShowMeals(true)} className={`text-white my-1 py-1 ${showMeals ? "bg-primary" : "bg-secondary"}`}>
+                    <p className='p-1' style={{margin: "0", cursor: "pointer"}}>Daxilindəki Yeməklər</p>
+                  </li>
+
+                  <li onClick={()=> setShowMeals(false)} className={`text-white my-1 py-1 ${!showMeals ? "bg-primary" : "bg-secondary"}`}>
+                    <p className='p-1' style={{margin: "0", cursor: "pointer"}}>
+                      Daxilindəki Kateqoriyalar
+                    </p>
+                  </li>
+
+                </ul>
               </div>
+
+              {
+                !showMeals ?
+
+                <>
+                  <div className="subcategories-content my-5 pb-4">
+                    <h2 className='add-page-label mt-5'>Daxilindəki alt kateqoriyalar</h2>
+                    <p className='text-white  mb-5'>Üzərinə klik edərək ətraflı məlumat ala bilərsiniz:</p>
+
+                    {
+                      subCategories.map((item)=>{                    
+                        return(
+                          <p className='btn btn-secondary d-block text-start' onClick={()=> navigate(`/subCategory/${item.id}`)}>{item.titleAZ}</p>
+                        )
+                      })
+                    }
+                  </div>
+                </>
+
+                :
+
+                productLoading ? <Loading /> :
+
+                <>
+                  <h2 className='add-page-label mt-5'>Daxilindəki Yeməklər</h2>
+
+                  <Table 
+                    allData={allProducts.filter((product)=> product.subCategory.categoryId == id)}
+                    defaultElementPerPage={5}
+                    optionsPerPage={[5, 10, 20]}
+                    tableColumns={mealTableColumns}
+                    navigateDetailFunc={editFunc}
+                    deleteFunc={delteFunc}
+                  />
+                </>
+              }
+              {
+
+                
+              }
+
 
           </div>
         }

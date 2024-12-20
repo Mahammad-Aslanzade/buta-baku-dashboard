@@ -10,6 +10,7 @@ import LoadingFail from "../../components/loader-warnings/LoadingFail";
 import areYouSureToDelete from "../../components/alert/AreYouSureToDelete";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { mealTableColumns } from "../../data/JsonStructures";
 
 
 const Meal = () => {
@@ -27,33 +28,6 @@ const Meal = () => {
   const apiEndPoint = "v1/product";
   const pagePath = "/product";
   const pageTitle = "Yeməklər";
-  const tableColumns = [
-    {
-        label : "Şəkil",
-        fieldProperties : {
-          fieldPath : ["image"],
-          image : true 
-        },
-    },
-    {
-      label : "Ad",
-      fieldProperties : {
-        fieldPath : ["titleAZ"]
-      }
-    },
-    {
-      label : "Kateqoriya",
-      fieldProperties : {
-        fieldPath : ["subCategory" , "category" , "titleAZ"]
-      }
-    },
-    {
-      label : "Qiymət",
-      fieldProperties : {
-        fieldPath : ["price"]
-      }
-    },
-  ]
 
 
   const delteFunc =(id)=>{
@@ -126,7 +100,7 @@ const Meal = () => {
           allData={filteredData}
           defaultElementPerPage={10}
           optionsPerPage={[10, 50, 100]}
-          tableColumns={tableColumns}
+          tableColumns={mealTableColumns}
           navigateDetailFunc={editFunc}
           deleteFunc={delteFunc}
         />
