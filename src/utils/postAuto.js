@@ -6,25 +6,75 @@ const baseUrl = "http://164.92.190.92/api";
 }
 
 const data =   [
-  { subCategoryId: 37, titleAZ: "Quzu Gərdan", titleEN: "Lamb Gardan", gram: "(250 qr.)", price: "15.00" },
-  { subCategoryId: 37, titleAZ: "Çoban Qovurma", titleEN: "Choban govurma", gram: "(250 qr.)", price: "12.00" },
-  { subCategoryId: 37, titleAZ: "Şəki Pitisi", titleEN: "Sheki piti", gram: "", price: "10.00" },
-  { subCategoryId: 37, titleAZ: "Yarpaq Dolması", titleEN: "Grape leaves dolma", gram: "(200 qr.)", price: "9.00" },
-  { subCategoryId: 37, titleAZ: "Pip Dolması", titleEN: "Pip dolma", gram: "(250 qr.)", price: "10.00" },
-  { subCategoryId: 37, titleAZ: "Quzu Buğlama", titleEN: "Lamb bughlama", gram: "(250 qr.)", price: "10.00" },
-  { subCategoryId: 37, titleAZ: "Dana Buğlama", titleEN: "Beef bughlama", gram: "", price: "10.00" },
-  { subCategoryId: 37, titleAZ: "Nar Qovurma (Quzu Əti)", titleEN: "Lamb with roast pomegranate", gram: "(250 qr.)", price: "15.00" },
-  { subCategoryId: 37, titleAZ: "Nar Qovurma (Can Əti)", titleEN: "Tenderloin with roast pomegranate", gram: "(250 qr.)", price: "18.00" },
-  { subCategoryId: 37, titleAZ: "Cız-Bız", titleEN: "Jiz-biz lamb giblets", gram: "(250 qr.)", price: "10.00" },
-  { subCategoryId: 37, titleAZ: "Can Əti (turşulu\\şabaladlı)", titleEN: "Tenderloin with plums and chestnuts", gram: "(250 qr.)", price: "15.00" },
-  { subCategoryId: 37, titleAZ: "Şabaladlı Maça Qovurma", titleEN: "Lamb shank with chestnuts", gram: "(300 qr.)", price: "12.00" },
-  { subCategoryId: 37, titleAZ: "Şirəli Dana", titleEN: "Juicy beef", gram: "(250 qr.)", price: "12.00" },
-  { subCategoryId: 37, titleAZ: "Can Əti Qaymaqlı", titleEN: "Tenderloin in a creamy sauce", gram: "", price: "14.00" },
-  { subCategoryId: 37, titleAZ: "Şirəli Xoruz", titleEN: "Juicy chicken", gram: "", price: "25.00" },
-  { subCategoryId: 37, titleAZ: "Qaymaqlı Çolpa", titleEN: "Chicken in a creamy sauce", gram: "", price: "20.00" },
-  { subCategoryId: 37, titleAZ: "Maça Peraşki", titleEN: "Lamb shank perashki", gram: "", price: "9.00" }
+  {
+    subCategoryId: 96,
+    titleAZ: "Blinçik",
+    titleEN: "Blinchik with cottage cheese",
+    gram: "",
+    descAZ: "(kəsmikli) (1ədəd)",
+    descEN: "(curded) (1piece)",
+    price: "2.00",
+},
 
-  ]
+{
+    subCategoryId: 96,
+    titleAZ: "Blinçik Panko",
+    titleEN: "Blinchik with meat",
+    gram: "(1ədəd)",
+    descAZ: "",
+    descEN: "",
+    price: "2.50",
+},
+
+{
+    subCategoryId: 96,
+    titleAZ: "Göy kətəsi",
+    titleEN: "Panko",
+    gram: "",
+    descAZ: "",
+    descEN: "",
+    price: "6.00",
+},
+
+{
+    subCategoryId: 96,
+    titleAZ: "Qutab",
+    titleEN: "Qutab",
+    gram: "",
+    descAZ: "(ət/göy/balqabaq/pendir) (1ədəd)",
+    descEN: "(meat/greens/pumpkin/cheese) (piece)",
+    price: "2.00",
+},
+{
+    subCategoryId: 96,
+    titleAZ: "Yarpaq Xəngəl",
+    titleEN: "Yarpag khinkal",
+    gram: "",
+    descAZ: "",
+    descEN: "",
+    price: "8.00",
+},
+
+{
+    subCategoryId: 96,
+    titleAZ: "Gürcü Xəngəl",
+    titleEN: "Georgian khinkali",
+    gram: "",
+    descAZ: "(5ədəd)",
+    descEN: "(5pieces)",
+    price: "8.00",
+},
+
+{
+    subCategoryId: 96,
+    titleAZ: "Gürzə",
+    titleEN: "Gyurza",
+    gram: "",
+    descAZ: "(12 ədəd)",
+    descEN: "(12 pieces)",
+    price: "10.00",
+},  
+]
   
   
 
