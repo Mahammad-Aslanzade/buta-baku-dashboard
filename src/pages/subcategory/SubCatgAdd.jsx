@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SelectionField from '../../components/inputs/SelectionField';
 import axiosInstance from '../../configuration/axiosConfig';
+import { findFirstGap } from '../../utils/sortData';
 
 const SubCatgAdd = () => {
   
@@ -21,6 +22,7 @@ const SubCatgAdd = () => {
   const pagePath = "/subCategory";
   const pageTitle = "Alt Kateqoriya";
 
+  const [position , setPosition] = useState();
   const [titleAZ , setTitleAZ] = useState();
   const [titleEN , setTitleEN] = useState();
   const [selecetedCategory , setSelectedCategory ]= useState();
@@ -32,6 +34,7 @@ const SubCatgAdd = () => {
     e.preventDefault();
     
     const reqBody= {    
+      position : position/1,
       titleAZ : titleAZ,
       titleEN : titleEN,
       categoryId : selecetedCategory/1
@@ -39,7 +42,6 @@ const SubCatgAdd = () => {
     
     axiosInstance.post(`${baseUrl}/${apiEndPoint}`, reqBody , {headers})
     .then((res)=>{
-      console.log("RESPONSE : " , res);
       navigate(pagePath)
     })
     .catch((err)=>{
@@ -47,6 +49,7 @@ const SubCatgAdd = () => {
     })
   }
 
+  const [positionLoading , setPositionLoading] = useState(true);
   useEffect(()=>{
     axios.get(`${baseUrl}/${categoryEndPoint}` , {headers})
     .then((res)=>{
@@ -56,6 +59,16 @@ const SubCatgAdd = () => {
     .catch(()=>{
       setLoading(false);
       setError(true);
+    })
+                          //subcatg
+    axios.get(`${baseUrl}/${apiEndPoint}` , {headers})
+    .then((res)=>{
+      const data = res.data;
+      setPosition(findFirstGap(data));
+      setPositionLoading(false);
+    })
+    .catch(()=>{
+      setPositionLoading(false);
     })
   },[])
 
@@ -67,6 +80,17 @@ const SubCatgAdd = () => {
         <div className="add-page-content">
 
             <form onSubmit={handleSubmit}>
+
+                <InputField 
+                    label="Sıra"
+                    setState={setPosition}
+                    numSteps='0'
+                    inputType='number'
+                    required={true}
+                    defaultValue={position}
+                    placeholder={positionLoading ? 'Boş pozisiya axtrılır ...' : ""}
+                    disabled={positionLoading}
+                />
 
                 <InputField 
                     label="Ad (AZ)"

@@ -8,6 +8,7 @@ import LoadingFail from '../../components/loader-warnings/LoadingFail';
 import ImageInput from '../../components/inputs/ImageInput';
 import ListField from '../../components/inputs/ListField';
 import Swal from 'sweetalert2';
+import axiosInstance from '../../configuration/axiosConfig';
 
 const AboutUs = () => {
   
@@ -25,6 +26,9 @@ const AboutUs = () => {
   const [addressAZ , setAddressAZ] = useState();
   const [instagram , setInstagram] = useState();
   const [facebook , setFacebook] = useState();
+
+  const [tiktok , setTiktok] = useState();
+  const [youtube , setYoutube] = useState();
 
   const [whatsapp , setWhatsapp] = useState();
   const [sendLogo , setSendLogo ] = useState();
@@ -44,6 +48,8 @@ const AboutUs = () => {
         setInstagram(data.instagram);
         setFacebook(data.facebook);
         setWhatsapp(data.whatsapp);
+        setYoutube(data.youtube);
+        setTiktok(data.tiktok);
         
         setLoading(false);
     })
@@ -68,6 +74,8 @@ const AboutUs = () => {
     formData.append('instagram' , instagram)
     formData.append('facebook' , facebook)
     formData.append('whatsapp' , whatsapp)
+    formData.append('tiktok' , tiktok)
+    formData.append('youtube' , youtube)
 
     if(phoneNumbers){
         phoneNumbers.map((i)=>{
@@ -75,7 +83,7 @@ const AboutUs = () => {
         })
     }
 
-    axios.put(`${baseUrl}/v1/info` , formData  ,{headers})
+    axiosInstance.put(`${baseUrl}/v1/info` , formData  ,{headers})
     .then((res)=>{
         if(res.status == 200){
             Swal.fire({
@@ -171,6 +179,20 @@ const AboutUs = () => {
                         label="Whatsapp"
                         defaultValue={whatsapp}
                         setState={setWhatsapp}
+                        placeholder="Hesabınızın linkini yerləşdirin"
+                    />     
+
+                    <InputField 
+                        label="Tiktok"
+                        defaultValue={tiktok}
+                        setState={setTiktok}
+                        placeholder="Hesabınızın linkini yerləşdirin"
+                    />     
+
+                    <InputField 
+                        label="Youtube"
+                        defaultValue={youtube}
+                        setState={setYoutube}
                         placeholder="Hesabınızın linkini yerləşdirin"
                     />     
 

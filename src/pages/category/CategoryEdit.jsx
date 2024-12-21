@@ -10,6 +10,7 @@ import LoadingFail from '../../components/loader-warnings/LoadingFail';
 import Table from '../../components/Table';
 import { mealTableColumns } from '../../data/JsonStructures';
 import areYouSureToDelete from '../../components/alert/AreYouSureToDelete';
+import axiosInstance from '../../configuration/axiosConfig';
 
 const CategoryEdit = () => {
   
@@ -30,6 +31,7 @@ const CategoryEdit = () => {
   const pagePath = "/category";
   const pageTitle = "Kateqoriya";
 
+  const [position , setPosition] = useState();
   const [titleAZ , setTitleAZ] = useState();
   const [titleEN , setTitleEN] = useState();
   const [image , setImage] = useState();
@@ -41,6 +43,7 @@ const CategoryEdit = () => {
     e.preventDefault();
 
     const formData= new FormData();    
+    formData.append('position', position);
     formData.append('titleAZ', titleAZ);
     formData.append('titleEN', titleEN);
 
@@ -48,7 +51,7 @@ const CategoryEdit = () => {
       formData.append('image' , sendImage);
     }
     
-    axios.put(`${baseUrl}/${apiEndPoint}/${id}`, formData , {headers})
+    axiosInstance.put(`${baseUrl}/${apiEndPoint}/${id}`, formData , {headers})
     .then((res)=>{
       navigate(pagePath)
     })
@@ -62,6 +65,7 @@ const CategoryEdit = () => {
     axios.get(`${baseUrl}/${apiEndPoint}/${id}`, {headers})
     .then((res)=>{      
       const data = res.data;
+      setPosition(data.position);
       setTitleAZ(data.titleAZ);
       setTitleEN(data.titleEN);
       setImage(data.image);
@@ -125,6 +129,15 @@ const CategoryEdit = () => {
           <div className="add-page-content">
 
               <form onSubmit={handleSubmit}>
+
+                  <InputField 
+                      label="Sıra"
+                      defaultValue={position}
+                      setState={setPosition}
+                      inputType='number'
+                      numSteps='0'
+                      required={true}
+                  />
 
                   <ImageInput 
                       image={image}

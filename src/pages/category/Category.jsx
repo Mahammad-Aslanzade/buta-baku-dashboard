@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import SearchInput from "../../components/SearchInput";
 import { filterFunction } from "../../utils/filterData";
+import { sortForPosition } from "../../utils/sortData";
 
 
 const Category = () => {
@@ -28,6 +29,12 @@ const Category = () => {
   const pagePath = "/category";
   const pageTitle = "Kateqoriya";
   const tableColumns = [
+    {
+      label : "Sıra",
+      fieldProperties : {
+        fieldPath : ["position"]
+      }
+    },
     {
       label : "Ad",
       fieldProperties : {
@@ -91,7 +98,7 @@ const Category = () => {
   useEffect(()=>{
     axios.get(`${baseUrl}/${apiEndPoint}` , {headers})
     .then((res)=>{
-      const data = res.data;    
+      const data = sortForPosition(res.data);    
       setAllData(data);
       setFilteredData(data);
       setLoading(false);

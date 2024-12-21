@@ -48,7 +48,7 @@ const Table = ({defaultElementPerPage , disablePagination=false , optionsPerPage
         <div className="table-container">
 
             {
-                allData.length == 0 ? <h3 className='text-center text-white my-5'>Nothing Found</h3>
+                allData.length == 0 ? <h3 className='text-center text-white my-5'>Heçnə tapılmadı !</h3>
                 :
                 <>
                     <div className="table-content-container">

@@ -36,21 +36,21 @@ axiosInstance.interceptors.response.use((response) => {
 
   // Handle specific HTTP error codes
   if (error.response) {
+    Swal.fire({
+      icon: 'error',
+      // title: 'Validation Error',
+      text: error.response.data.error,
+    });
     const status = error.response.status;
-    
-    if (status === 400) {
-      Swal.fire({
-        icon: 'error',
-        // title: 'Validation Error',
-        text: error.response.data.error,
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Xəta baş verdi',
-        // text: 'Something went wrong!!!',
-      });
-    }
+
+    // if (status === 400) {
+    // } else {
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Xəta baş verdi',
+    //     // text: 'Something went wrong!!!',
+    //   });
+    // }
   } else {
     Swal.fire({
       icon: 'error',

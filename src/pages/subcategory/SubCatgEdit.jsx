@@ -7,6 +7,7 @@ import axios from 'axios';
 import SelectionField from '../../components/inputs/SelectionField';
 import Loading from '../../components/loader-warnings/Loading';
 import LoadingFail from '../../components/loader-warnings/LoadingFail';
+import axiosInstance from '../../configuration/axiosConfig';
 
 const SubCatgEdit = () => {
   
@@ -24,27 +25,27 @@ const SubCatgEdit = () => {
   const pagePath = "/subCategory";
   const pageTitle = "Alt Kateqoriya";
 
+  const [position , setPosition] = useState();
   const [titleAZ , setTitleAZ] = useState();
   const [titleEN , setTitleEN] = useState();
   const [selecetedCategory , setSelectedCategory ]= useState();
 
   const [allCategories , setAllCategories] = useState();
  
-  console.log(selecetedCategory);
   
 
   const handleSubmit=(e)=>{
     e.preventDefault();
     
     const reqBody= {    
+      position : position,
       titleAZ : titleAZ,
       titleEN : titleEN,
       categoryId : selecetedCategory/1
     }
     
-    axios.put(`${baseUrl}/${apiEndPoint}/${id}`, reqBody , {headers})
+    axiosInstance.put(`${baseUrl}/${apiEndPoint}/${id}`, reqBody , {headers})
     .then((res)=>{
-      console.log("RESPONSE : " , res);
       navigate(pagePath)
     })
     .catch((err)=>{
@@ -56,6 +57,7 @@ const SubCatgEdit = () => {
     axios.get(`${baseUrl}/${apiEndPoint}/${id}` , {headers})
     .then((res)=>{
       const data = res.data;
+      setPosition(data.position);
       setTitleAZ(data.titleAZ);
       setTitleEN(data.titleEN);
       setSelectedCategory(data.categoryId);
@@ -92,6 +94,15 @@ const SubCatgEdit = () => {
           <div className="add-page-content">
 
               <form onSubmit={handleSubmit}>
+
+                  <InputField 
+                      label="Sıra"
+                      setState={setPosition}
+                      numSteps='0'
+                      inputType='number'
+                      required={true}
+                      defaultValue={position}
+                  />
 
                   <InputField 
                       label="Ad (AZ)"
