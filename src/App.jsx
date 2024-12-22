@@ -38,7 +38,7 @@ const App = () => {
       ?
       <Login />
       :
-      <BrowserRouter basename='/gh-page'>
+      <BrowserRouter basename='/buta-baku-dashboard'>
         <ApiUrlProvider>
           <SideBarProvider>
             <Dashboard />      
