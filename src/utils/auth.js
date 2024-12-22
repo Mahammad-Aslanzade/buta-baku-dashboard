@@ -7,7 +7,7 @@ export const auth =(login , password)=>{
         "email" : login,
         "password": password
     }
-    return axios.post("http://164.92.190.92/api/v1/auth/login" , postBody)
+    return axios.post("https://butabakurestaurant.az/api/v1/auth/login" , postBody)
     // return axios.post("http://localhost:8080/api/auth/login" , postBody)
 }
 
