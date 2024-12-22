@@ -6,7 +6,8 @@ export const ApiUrlContext = createContext();
 export const ApiUrlProvider =(props)=>{
 
   // const baseUrl = "http://localhost:8080/api";
-  const baseUrl = "http://164.92.190.92/api";
+  // const baseUrl = "http://164.92.190.92/api";
+  const baseUrl = "https://butabakurestaurant.az/api";
   const headers = {
     Authorization : `Bearer ${getCookie('token')}`,
   }
