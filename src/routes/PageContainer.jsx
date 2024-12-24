@@ -21,6 +21,8 @@ import MealEdit from "../pages/meal/MealEdit";
 import SubCatg from "../pages/subcategory/SubCatg";
 import SubCatgAdd from "../pages/subcategory/SubCatgAdd";
 import SubCatgEdit from "../pages/subcategory/SubCatgEdit";
+import SubCatgRow from "../pages/subcategory/SubCatgRow";
+import MealRow from "../pages/meal/MealRow";
 
 
 const PageContainer = () => {
@@ -40,6 +42,7 @@ const PageContainer = () => {
         <Route path="/product" element={<Meal />}></Route>
         <Route path="/product/add" element={<MealAdd />}></Route>
         <Route path="/product/:id" element={<MealEdit />}></Route>
+        <Route path="/product/:id/changeRow" element={<MealRow />}></Route>
         
         {/* Category */}
         <Route path="/category" element={<Category />}></Route>
@@ -50,6 +53,7 @@ const PageContainer = () => {
         <Route path="/subCategory" element={<SubCatg />}></Route>
         <Route path="/subCategory/add" element={<SubCatgAdd />}></Route>
         <Route path="/subCategory/:id" element={<SubCatgEdit />}></Route>
+        <Route path="/subCategory/:id/changeRow" element={<SubCatgRow />}></Route>
 
     </Routes>
   );

@@ -8,6 +8,8 @@ import SelectionField from '../../components/inputs/SelectionField';
 import Loading from '../../components/loader-warnings/Loading';
 import LoadingFail from '../../components/loader-warnings/LoadingFail';
 import axiosInstance from '../../configuration/axiosConfig';
+import { sortForPosition } from '../../utils/sortData';
+import ViewMore from '../../components/buttons/ViewMore';
 
 const SubCatgEdit = () => {
   
@@ -31,6 +33,8 @@ const SubCatgEdit = () => {
   const [selecetedCategory , setSelectedCategory ]= useState();
 
   const [allCategories , setAllCategories] = useState();
+
+  const [thisCategoryProducts , setThisCategoryProducts] = useState();
  
   
 
@@ -61,6 +65,7 @@ const SubCatgEdit = () => {
       setTitleAZ(data.titleAZ);
       setTitleEN(data.titleEN);
       setSelectedCategory(data.categoryId);
+      setThisCategoryProducts(data.products);      
       setLoading(false);
     })
     .catch(()=>{
@@ -130,6 +135,27 @@ const SubCatgEdit = () => {
                   <SaveBtn />
 
               </form>
+
+              <div className="subitems-content-box my-3">                
+                <h3 className='add-page-label mt-5'>Daxilindəki Yeməklər : Ümumi({thisCategoryProducts.length})</h3>
+
+                {
+                  sortForPosition(thisCategoryProducts).map((item)=>{                    
+                    return(
+                      <div className='subitems-table-item' key={item.id} onClick={()=> navigate(`/product/${item.id}`)}>
+                        <p className='item-label'>{item.position} : {item.titleAZ}</p>
+                        <ViewMore 
+                          label='Sırasını dəyiş' 
+                          clickFunc={(e)=> {
+                            e.stopPropagation();
+                            navigate(`/product/${item.id}/changeRow`)
+                          }}
+                        />
+                      </div>
+                    )
+                  })
+                }
+              </div>
 
           </div>
         }

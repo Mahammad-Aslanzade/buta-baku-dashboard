@@ -1,0 +1,27 @@
+.subitems-content-box{
+    width: 100%;
+    .subitems-table-item {
+        width: 100%;
+        margin: 1vh 0;
+        background-color: #030303;
+        border-radius: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1vh 0;
+        margin: 1vh 0;
+        transition: 0.5s;
+        cursor: pointer;
+        .item-label{
+            color: #fff;
+            margin: 0;
+            margin: 0 1vh;
+            font-size: 18px;
+            font-weight: bolder;
+        }
+        &:hover{
+            background-color: var(--indicator-icon-color);
+        }
+    }
+  }

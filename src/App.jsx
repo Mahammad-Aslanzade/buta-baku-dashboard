@@ -5,7 +5,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import './assets/scss/style.scss'
 import Login from './pages/auth/Login';
 import { SideBarProvider } from './context/SidebarContext';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as BrowserRouter } from 'react-router-dom';
 import { ApiUrlProvider } from './context/ApiUrlContext';
 import { deleteCookie, getCookie } from './utils/cookie';
 
@@ -38,7 +38,7 @@ const App = () => {
       ?
       <Login />
       :
-      <BrowserRouter basename='/buta-baku-dashboard'>
+      <BrowserRouter>
         <ApiUrlProvider>
           <SideBarProvider>
             <Dashboard />      

@@ -30,12 +30,6 @@ const SubCatg = () => {
   const pageTitle = "Alt Kateqoriya";
   const tableColumns = [
     {
-      label : "Sıra",
-      fieldProperties : {
-        fieldPath : ["position"]
-      }
-    },
-    {
       label : "Ad",
       fieldProperties : {
         fieldPath : ["titleAZ"]
@@ -77,8 +71,8 @@ const SubCatg = () => {
           callDeleteApi(id);
         }
       })
-      .catch(()=>{
-        console.log("ERRR");
+      .catch((err)=>{
+        console.log(err);
         
       })
 
